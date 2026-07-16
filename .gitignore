@@ -1,0 +1,8 @@
+# MATLAB temporary/autosave files
+*.asv
+
+# Other potential MATLAB/OS artifacts
+*.mat
+*.log
+.DS_Store
+Thumbs.db
