@@ -18,7 +18,7 @@ altitude = 400000; % Meters
 x0 = R + altitude;
 y0 = 0;
 z0 = 0;
-inclination = deg2rad(45); % Tilt orbit by 45 degrees
+inclination = deg2rad(45);
 semi_major = norm([x0;y0;z0;]);
 vcircular = sqrt(mu/semi_major);
 xdot0 = 0;
@@ -34,13 +34,13 @@ tspan = [0 period*number_of_orbits];
 %Integrator
 [tout,stateout] = ode45(@satellite,tspan,stateinitial);
 
+%Convert state to km
+stateout = stateout/1000;
+
 %Extract the state vector
 xout = stateout(:,1);
 yout = stateout(:,2);
 zout = stateout(:,3);
-
-%Convert state to km
-stateout = stateout/1000;
 
 %make an Earth
 [X,Y,Z] = sphere(100);
@@ -51,8 +51,23 @@ Z = Z*R/1000;
 %plot 3D orbit
 fig = figure();
 set(fig,'color','white');
-plot3(xout,yout,zout,'b-','LineWidth',4);
+plot3(xout,yout,zout,'b-','LineWidth',2);
 grid on;
 hold on;
-surf(X,Y,Z,'EdgeColor','none');
+
+% Load built-in topography data and apply as a texture map
+load topo
+surf(X, Y, Z, 'FaceColor', 'texturemap', 'CData', topo, 'EdgeColor', 'none');
+colormap(topomap1)
+
+% Add lighting effects for realistic 3D depth
+lighting gouraud
+camlight
+
+% Styling and labels
+xlabel('X (km)');
+ylabel('Y (km)');
+zlabel('Z (km)');
+title('3D Satellite Orbit');
 axis equal;
+
