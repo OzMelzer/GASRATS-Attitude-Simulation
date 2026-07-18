@@ -1,8 +1,15 @@
-# MATLAB temporary/autosave files
+# MATLAB files
 *.asv
-
-# Other potential MATLAB/OS artifacts
+*.m~
 *.mat
 *.log
+
+# Simulink files
+slprj/
+*.slxc
+*.mex*
+*.autosave
+
+# Other potential OS artifacts
 .DS_Store
 Thumbs.db
