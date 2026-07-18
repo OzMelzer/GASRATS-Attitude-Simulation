@@ -1,11 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% GASRATS Translational Orbit Dyanamics
+% GASRATS Translational and Rotational Orbit Dyanamics
 %
-% Based on Monte Carlos ADCS For LEO Sats Playlist
+% Code structure based on Monte Carlos ADCS for LEO Sats Playlist
 % "MATLAB Help - Translational Orbit Dynamics for a Low Earth Satellite...
 % using ode45"
 %
-% Dynamics Equations based on "Fundamentals of Astrodynamics"
+% Translational orbital dynamics equations based on ...
+% "Fundamentals of Astrodynamics - Bate, Mueller, and White"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 disp('Simulation Started');
