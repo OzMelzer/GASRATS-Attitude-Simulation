@@ -1,7 +1,6 @@
 # MATLAB files
 *.asv
 *.m~
-*.mat
 *.log
 
 # Simulink files
